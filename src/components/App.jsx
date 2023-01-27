@@ -72,7 +72,7 @@ export function App() {
   return (
     <div className={s.App}>
       <Searcbar onSubmit={handleSubmit} />
-      {list.length && (
+      {/* {list.length && (
         <>
           <ImageGallery list={list} onOpenModal={handleOpenModal} />
           {list.length === basePage * 12 && (
@@ -82,7 +82,7 @@ export function App() {
       )}
 
       {isnotLoading || <Loader />}
-      {isModalClose || <Modal onModalClose={handleModalClose} card={card} />}
+      {isModalClose || <Modal onModalClose={handleModalClose} card={card} />} */}
     </div>
   );
 }
