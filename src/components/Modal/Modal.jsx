@@ -1,34 +1,32 @@
 import PropTypes from 'prop-types';
-import { Component } from 'react';
+import { useEffect } from 'react';
+
 import s from './Modal.module.css';
-export default class Modal extends Component {
-  hendleCklickOverlay = e => {
+
+export default function Modal({ onModalClose, card }) {
+  const hendleCklickOverlay = e => {
     if (e.target === e.currentTarget) {
-      this.props.onModalClose();
+      onModalClose();
     }
   };
-  componentDidMount() {
-    window.addEventListener('keydown', this.hendleKeyEscaep);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.hendleKeyEscaep);
-  }
-  hendleKeyEscaep = e => {
-    console.log(e);
+  const hendleKeyEscaep = e => {
     if (e.code === 'Escape') {
-      this.props.onModalClose();
+      onModalClose();
     }
   };
-  render() {
-    const { largeImageURL, tags } = this.props.card;
-    return (
-      <div className={s.Overlay} onClick={this.hendleCklickOverlay}>
-        <div className={s.Modal}>
-          <img src={largeImageURL} alt={tags} />
-        </div>
+
+  useEffect(() => {
+    window.addEventListener('keydown', hendleKeyEscaep);
+    return () => window.removeEventListener('keydown', hendleKeyEscaep);
+  }, []);
+  const { largeImageURL, tags } = card;
+  return (
+    <div className={s.Overlay} onClick={hendleCklickOverlay}>
+      <div className={s.Modal}>
+        <img src={largeImageURL} alt={tags} />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Modal.propTypes = {
