@@ -22,7 +22,7 @@ export function App() {
 
   useEffect(() => {
     fethData(basePage, search);
-  }, [basePage, search]);
+  });
 
   const fethData = async (basePage, search) => {
     setIsNotLoading(false);
