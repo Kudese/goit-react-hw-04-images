@@ -20,9 +20,9 @@ export function App() {
   const [isModalClose, setIsModalClose] = useState(true);
   const [card, setCard] = useState({});
 
-  useEffect(() => {
-    fethData(basePage, search);
-  });
+  useEffect((BasePage,search) => {
+    fethData(BasePage, search);
+  },[]);
 
   const fethData = async (basePage, search) => {
     setIsNotLoading(false);
