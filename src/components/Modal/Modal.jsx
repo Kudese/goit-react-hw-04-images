@@ -18,7 +18,7 @@ export default function Modal({ onModalClose, card }) {
   useEffect(() => {
     window.addEventListener('keydown', hendleKeyEscaep);
     return () => window.removeEventListener('keydown', hendleKeyEscaep);
-  }, []);
+  });
   const { largeImageURL, tags } = card;
   return (
     <div className={s.Overlay} onClick={hendleCklickOverlay}>
