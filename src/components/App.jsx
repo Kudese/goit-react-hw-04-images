@@ -60,13 +60,13 @@ export function App() {
       return nextPage;
     });
   };
-  const handleOpenModal = useCallback(id => {
+  const handleOpenModal = id => {
     const index = list.findIndex(item => {
       return item.id === id;
     });
     setCard(list[index]);
     setIsModalClose(false);
-  });
+  };
   const handleModalClose = () => {
     setIsModalClose(true);
   };
