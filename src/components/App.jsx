@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useCallback } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import s from './App.module.css';
@@ -23,7 +22,7 @@ export function App() {
 
   useEffect(() => {
     fethData(basePage, search);
-  }, []);
+  }, [basePage, search]);
 
   const fethData = async (basePage, search) => {
     setIsNotLoading(false);
